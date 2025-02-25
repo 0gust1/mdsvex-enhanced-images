@@ -4,7 +4,7 @@ const RE_SCRIPT_START =
   /<script(?:\s+?[a-zA-z]+(=(?:["']){0,1}[a-zA-Z0-9]+(?:["']){0,1}){0,1})*\s*?>/;
 const RE_SRC = /src\s*=\s*"(.+?)"/;
 
-export default function enhancedImage() {  
+export default function enhancedImage(options) {  
   return function transformer(tree) {
     let scripts = "";
     visit(tree, 'image', (node) => {
@@ -18,12 +18,12 @@ export default function enhancedImage() {
         scripts += `${importStatement}`
 
         // Create the image component
-        const imageComponent = `<enhanced:img src={${importName}} alt="${node.alt || ''}"></enhanced:img>`;
+        const imageComponent =
+          `<enhanced:img src={${importName}} alt="${node.alt ?? ''}" class="${options.classes ?? ''}"></enhanced:img>`;
         
         // Replace the node with the import and component
         node.type = 'html';
         node.value = imageComponent;
-
       }
     });
 
@@ -42,9 +42,6 @@ export default function enhancedImage() {
         type: "html",
         value: `<script>\n${scripts}</script>`,
       });
-    } 
-
-
-
+    }
   }
 }

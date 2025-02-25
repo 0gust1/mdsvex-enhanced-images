@@ -3,18 +3,18 @@
 
 Allows you to use relative urls to images from the markdown file while also using the enhanced:img library from @sveltejs/enhanced-img.
 
-Thanks to https://github.com/mattjennings/mdsvex-relative-images as I used it as a base for this. It could probably be a lot more dynamic and allow custom configurations, but for now. This is all I needed. If you have a recommended change please do a pull request.
+Thanks to https://github.com/mattjennings/mdsvex-relative-images as I used it as a base for this. It could probably be a lot more dynamic and allow more custom configurations, but for now. This is all I needed. If you have a recommended change please do a pull request.
 
 
 # Usage
 Install the package
 ```
-npm i @lzinga/mdsvex-enhanced-images
+npm install --save-dev mdsvex-enhanced-images
 ```
 
 Configure the package in your mdsvex config.
 ```ts
-import enhancedImage from 'mdsvex-enhanced-images';
+import { enhancedImage } from 'mdsvex-enhanced-images';
 
 const config = {
 	extensions: ['.svelte', '.md'],
@@ -22,7 +22,13 @@ const config = {
 	preprocess: [
 		mdsvex({
 			extensions: ['.md'],
-			remarkPlugins: [enhancedImage]
+			remarkPlugins: [[
+				enhancedImage,
+				{
+					// Optional value for the `img` class attribute
+					classes: "class-one class-two"
+				}
+			]]
 		})
 	],
 	kit: {

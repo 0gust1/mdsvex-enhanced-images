@@ -12,7 +12,12 @@ const config = {
 		vitePreprocess(),
 		mdsvex({
 			extensions: ['.md'],
-			remarkPlugins: [enhancedImage]
+			remarkPlugins: [[
+				enhancedImage,
+				{
+					classes: "test-decoration test-shadow"
+				}
+			]]
 		})
 	],
 
