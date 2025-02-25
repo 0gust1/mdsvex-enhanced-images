@@ -17,9 +17,14 @@ export default function enhancedImage(options) {
         const importStatement = `import ${importName} from '${decodeURIComponent(node.url)}?enhanced';\n`;
         scripts += `${importStatement}`
 
+        const classes = options.classes ? `class="${options.classes}"` : '';
+        const attributes = options.attributes 
+          ? Object.entries(options.attributes).map(([key, value]) => `${key}="${value}"`).join(' ') 
+          : '';
+
         // Create the image component
         const imageComponent =
-          `<enhanced:img src={${importName}} alt="${node.alt ?? ''}" class="${options.classes ?? ''}"></enhanced:img>`;
+          `<enhanced:img src={${importName}} alt="${node.alt ?? ''}" ${classes} ${attributes}></enhanced:img>`;
         
         // Replace the node with the import and component
         node.type = 'html';

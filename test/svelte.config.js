@@ -15,6 +15,10 @@ const config = {
 			remarkPlugins: [[
 				enhancedImage,
 				{
+					attributes: {
+						loading: "lazy",
+						decoding: "async",
+					},
 					classes: "test-decoration test-shadow"
 				}
 			]]
