@@ -25,7 +25,11 @@ const config = {
 			remarkPlugins: [[
 				enhancedImage,
 				{
-					// Optional value for the `img` class attribute
+					// Optional: attributes to add to **all** `img` tags
+					attributes: {
+						decoding: "async",
+					},
+					// Optional: class attribute to add to **all** `img` tags
 					classes: "class-one class-two"
 				}
 			]]
@@ -48,6 +52,15 @@ Now you can add images like
 
 ### Image no space, lib folder
 ![Image no space, lib folder](../lib/images/img.png)
+```
+
+You can also individually add css classes and extra attribute to images:
+```markdown
+### Image with css classes:
+![Image no space, lib folder](../lib/images/img.png?class=my-class1&class=my-class2)
+
+### Image with more attributes (here, loading=lazy):
+![Image no space, lib folder](../lib/images/img.png?loading=lazy)
 ```
 
 and in the page the images get replaced with the component like so.
