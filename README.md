@@ -1,6 +1,5 @@
 # mdsvex-enhanced-images
-![NPM Downloads](https://img.shields.io/npm/dt/%40lzinga%2Fmdsvex-enhanced-images)
-
+[![NPM Downloads](https://img.shields.io/npm/dt/%40lzinga%2Fmdsvex-enhanced-images)](https://www.npmjs.com/package/@lzinga/mdsvex-enhanced-images)
 
 Allows you to use relative urls to images from the markdown file while also using the enhanced:img library from @sveltejs/enhanced-img.
 
