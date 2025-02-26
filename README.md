@@ -27,10 +27,17 @@ const config = {
 				{
 					// Optional: attributes to add to **all** `img` tags
 					attributes: {
-						decoding: "async",
+						fetchpriority: "auto", // browser's default
+						loading: "eager", // browser's default
+						decoding: "auto", // browser's default
+						class: "test-decoration test-shadow" // add classes to all images
 					},
-					// Optional: class attribute to add to **all** `img` tags
-					classes: "class-one class-two"
+					// Optional: imagetools directives to add to **all** `img` tags
+					// see https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#format
+					imagetoolsDirectives:{
+						tint: "rgba(10,33,127)",
+						blur: 10,
+					}
 				}
 			]]
 		})

@@ -2,6 +2,7 @@ import { mdsvex } from "mdsvex";
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import enhancedImage from 'mdsvex-enhanced-images';
+import { blur } from "svelte/transition";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,10 +16,19 @@ const config = {
 			remarkPlugins: [[
 				enhancedImage,
 				{
+					// Optional: attributes to add to **all** `img` tags
 					attributes: {
-						decoding: "async",
+						fetchpriority: "auto", // browser's default
+						loading: "eager", // browser's default
+						decoding: "auto", // browser's default
+						class: "test-shadow"
 					},
-					classes: "test-decoration test-shadow"
+					// Optional: imagetools directives to add to **all** `img` tags
+					// see https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#format
+					imagetoolsDirectives:{
+						rotate: 90,
+						blur: 3
+					}
 				}
 			]]
 		})
