@@ -1,17 +1,21 @@
 import { visit } from "unist-util-visit";
-import {processAttributesAndConfig} from './utils.js'
+import { processAttributesAndConfig } from "./utils.js";
+
 const RE_SCRIPT_START =
   /<script(?:\s+?[a-zA-z]+(=(?:["']){0,1}[a-zA-Z0-9]+(?:["']){0,1}){0,1})*\s*?>/;
 const RE_SRC = /src\s*=\s*"(.+?)"/;
 
-export default function enhancedImage(options={}) {
+export default function enhancedImage(options = {}) {
   return function transformer(tree) {
     let scripts = "";
     visit(tree, "image", (node) => {
       if (node.url.startsWith(".")) {
-
         // Process the attributes and config
-        const {combinedClassesAttrStr, combinedAttributesStr, combinedDirectivesUrlParams} = processAttributesAndConfig(node.url, options);
+        const {
+          combinedClassesAttrStr,
+          combinedAttributesStr,
+          combinedDirectivesUrlParams,
+        } = processAttributesAndConfig(node.url, options);
 
         // Now, clean possible search params from the node.url
         // They've been processed and are now in the result of processAttributesAndConfig call
