@@ -38,7 +38,7 @@ export function processAttributesAndConfig(nodeUrl, config = {}) {
   //  - combine in a Set to remove duplicates
   //  - convert back to an array and generate the class attribute string
   const normalizedConfigClasses = config?.attributes?.class
-    ? config.attributes.class.split(" ").map((c) => c.trim())
+    ? config.attributes.class.trim().split(" ").map((c) => c.trim())
     : [];
   const classesInQuerySet = new Set(classesInQuery);
   const classesInConfigSet = new Set(normalizedConfigClasses);

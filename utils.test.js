@@ -40,6 +40,18 @@ describe('processAttributesAndConfig', () => {
     expect(result.combinedDirectivesUrlParams).toBe('&blure=3&rotate=90&custom=customValue');
   });
 
+  it('should correctly parse, deduplicate and combine repeated and dubiously expressed css classes ', () => {
+    const nodeUrl = './image.jpg?class=img-class;another-class&class=myclass;myclass2&class=myclass3&class=myclass3&fetchpriority=high&custom=customValue';
+    const config = {
+      attributes: { loading: 'lazy', class:" dubiousInConfig myclass", decoding: 'async' },
+      imagetoolsDirectives: { blure: 3, rotate: 90 }
+    };
+    const result = processAttributesAndConfig(nodeUrl, config);
+    expect(result.combinedClassesAttrStr).toBe('class="dubiousInConfig myclass img-class another-class myclass2 myclass3"');
+    expect(result.combinedAttributesStr).toBe('loading="lazy" decoding="async" fetchpriority="high"');
+    expect(result.combinedDirectivesUrlParams).toBe('&blure=3&rotate=90&custom=customValue');
+  });
+
   it('should handle empty config (with url parameters)', () => {
     const nodeUrl = './image.jpg?class=img-class&fetchpriority=high';
     const result = processAttributesAndConfig(nodeUrl);
