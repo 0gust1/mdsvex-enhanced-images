@@ -24,8 +24,7 @@ export function processAttributesAndConfig(nodeUrl, config = {}) {
   // create a standard url (to cleanly parse the query string)
   const url = new URL(nodeUrl, "http://localhost"); // base url is irrelevant but needed by URL constructor
   
-  /* CSS classe names handling */
-  
+  /* CSS class names handling */
   // get possible "class" entries from the query string
   const searchParams = new URLSearchParams(url.search);
   const classesInQuery = searchParams
