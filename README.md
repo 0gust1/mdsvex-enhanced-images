@@ -1,15 +1,18 @@
 # mdsvex-enhanced-images
 [![NPM Downloads](https://img.shields.io/npm/dt/%40lzinga%2Fmdsvex-enhanced-images)](https://www.npmjs.com/package/@lzinga/mdsvex-enhanced-images)
 
-Allows you to use relative urls to images from the markdown file while also using the enhanced:img library from @sveltejs/enhanced-img.
+Allows you to: 
+- use relative urls to images from the markdown file while also using the enhanced:img library from @sveltejs/enhanced-img.
+- add css classes and extra attributes to images in markdown
+- add imagetools directives to images in markdown
 
-Thanks to https://github.com/mattjennings/mdsvex-relative-images as I used it as a base for this. It could probably be a lot more dynamic and allow custom configurations, but for now. This is all I needed. If you have a recommended change please do a pull request.
+Thanks to https://github.com/mattjennings/mdsvex-relative-images for the inspiration.
 
+## Usage
 
-# Usage
 Install the package
 ```
-npm i @lzinga/mdsvex-enhanced-images
+npm install --save-dev mdsvex-enhanced-images
 ```
 
 Configure the package in your mdsvex config.
@@ -22,7 +25,24 @@ const config = {
 	preprocess: [
 		mdsvex({
 			extensions: ['.md'],
-			remarkPlugins: [enhancedImage]
+			remarkPlugins: [[
+				enhancedImage,
+				{
+					// Optional: attributes to add to **all** `img` tags
+					attributes: {
+						fetchpriority: "auto", // browser's default
+						loading: "eager", // browser's default
+						decoding: "auto", // browser's default
+						class: "test-decoration test-shadow" // add classes to all images
+					},
+					// Optional: imagetools directives to add to **all** `img` tags
+					// see https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#format
+					imagetoolsDirectives:{
+						tint: "rgba(10,33,127)",
+						blur: 10,
+					}
+				}
+			]]
 		})
 	],
 	kit: {
@@ -44,7 +64,22 @@ Now you can add images like
 ![Image no space, lib folder](../lib/images/img.png)
 ```
 
+You can also individually add css classes and extra attribute to images:
+
+```markdown
+### Image with css classes:
+![Image no space, lib folder](../lib/images/img.png?class=my-class1;my-class2)
+
+### Image with more attributes (here, loading=lazy):
+![Image no space, lib folder](../lib/images/img.png?loading=lazy)
+
+### Image with imagetools directives
+
+![Image no space, lib folder](../lib/images/img.png?rotate=90)
+```
+
 and in the page the images get replaced with the component like so.
+
 ```html
 <enhanced:img src={importedImage} alt="Image With Space Local Folder"></enhanced:img>
 ```
