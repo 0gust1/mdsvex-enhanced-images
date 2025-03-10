@@ -1,19 +1,34 @@
+# Test Page
 
-### Image With Space Local Folder
+## Src / import paths
+
+### Image path with space, Local Folder
 
 ![Image With Space Local Folder](./img%20with%20space.png)
 
-### Image no space, local folder
+### Image no space in path, local folder
 
 (one css class in url params)
 
-![Image no space, local folder](./img.png?class=test-border)
+![Image no space, local folder](./img.png)
 
-### Image no space, lib folder
+### Image no space in path, lib folder
+
+![Image no space, lib folder](../lib/images/img.png)
+
+## CSS classes and attributes
+
+(one css class in url params)
+
+![(one css class in url params)](./img.png?class=test-border)
 
 (url params: 2 css classes, and one `loading=lazy` attribute)
 
 ![Image no space, lib folder](../lib/images/img.png?loading=lazy&class=test-border&class=test-outline)
+
+## Image processing directives
+
+TODO
 
 <style>
   .test-decoration {
@@ -34,3 +49,4 @@
     outline: 4px solid rebeccaPurple;
   }
 </style>
+

@@ -1,23 +1,31 @@
 # mdsvex-enhanced-images
 [![NPM Downloads](https://img.shields.io/npm/dt/%40lzinga%2Fmdsvex-enhanced-images)](https://www.npmjs.com/package/@lzinga/mdsvex-enhanced-images)
 
-Allows you to: 
-- use relative urls to images from the markdown file while also using the enhanced:img library from @sveltejs/enhanced-img.
-- add css classes and extra attributes to images in markdown
-- add imagetools directives to images in markdown
+This plugin allows you to: 
+- use relative urls to images from the markdown file while also using the `enhanced:img` library from `@sveltejs/enhanced-img`.
+- add CSS class names and extra attributes (`loading`, `fetchpriority`, and `decoding`) to images directly in markdown (image by image) or through the plugin configuration (to all images).
+- add imagetools directives to images in markdown (image by image) or through the plugin configuration (to all images).
 
-Thanks to https://github.com/mattjennings/mdsvex-relative-images for the inspiration.
+Special thanks to https://github.com/mattjennings/mdsvex-relative-images, for the inspiration.
+
+Feel free to open a PR or an issue if you have any suggestions or feature requests!
 
 ## Usage
 
-Install the package
-```
-npm install --save-dev mdsvex-enhanced-images
+### Installation
+
+```bash
+npm install --save-dev @lzinga/mdsvex-enhanced-images
 ```
 
+(or the equivalent pnmp / yarn / bun commands)
+
+### Configuration
+
 Configure the package in your mdsvex config.
+
 ```ts
-import enhancedImage from 'mdsvex-enhanced-images';
+import enhancedImage from '@lzinga/mdsvex-enhanced-images';
 
 const config = {
 	extensions: ['.svelte', '.md'],
@@ -53,6 +61,7 @@ const config = {
 ```
 
 Now you can add images like
+
 ```markdown
 ### Image With Space Local Folder
 ![Image With Space Local Folder](./img%20with%20space.png)
