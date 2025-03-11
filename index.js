@@ -5,7 +5,7 @@ const RE_SCRIPT_START =
   /<script(?:\s+?[a-zA-z]+(=(?:["']){0,1}[a-zA-Z0-9]+(?:["']){0,1}){0,1})*\s*?>/;
 const RE_SRC = /src\s*=\s*"(.+?)"/;
 
-export default function enhancedImage(options = {}) {
+export default function enhancedImage(config = {}) {
   return function transformer(tree) {
     let scripts = "";
     visit(tree, "image", (node) => {
@@ -15,7 +15,7 @@ export default function enhancedImage(options = {}) {
           combinedClassesAttrStr,
           combinedAttributesStr,
           combinedDirectivesUrlParams,
-        } = processAttributesAndConfig(node.url, options);
+        } = processAttributesAndConfig(node.url, config);
 
         // Now, clean possible search params from the node.url
         // They've been processed and are now in the result of processAttributesAndConfig call
