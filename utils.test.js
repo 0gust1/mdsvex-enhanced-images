@@ -36,7 +36,7 @@ describe("processAttributesAndConfig", () => {
       "./image.jpg?class=img-class;another-class&fetchpriority=high&custom=customValue";
     const config = {
       attributes: { loading: "lazy", decoding: "async", class: "configClass" },
-      imagetoolsDirectives: { blure: 3, rotate: 90 },
+      imagetoolsDirectives: { blur: 3, rotate: 90 },
     };
     const result = processAttributesAndConfig(nodeUrl, config);
     expect(result.combinedClassesAttrStr).toBe(
@@ -46,7 +46,7 @@ describe("processAttributesAndConfig", () => {
       'loading="lazy" decoding="async" fetchpriority="high"'
     );
     expect(result.combinedDirectivesUrlParams).toBe(
-      "&blure=3&rotate=90&custom=customValue"
+      "&blur=3&rotate=90&custom=customValue"
     );
   });
 
@@ -57,7 +57,7 @@ describe("processAttributesAndConfig", () => {
     "./image.jpg?class=img-class&fetchpriority=high&custom=customValue";  
     const config = {
       attributes: { loading: "lazy", decoding: "async", class: "configClass" },
-      imagetoolsDirectives: { blure: 3, rotate: 90 },
+      imagetoolsDirectives: { blur: 3, rotate: 90 },
     };
     const result = processAttributesAndConfig(nodeUrl, config);
     const result2 = processAttributesAndConfig(nodeUrl2, config);
@@ -68,7 +68,7 @@ describe("processAttributesAndConfig", () => {
       'loading="lazy" decoding="async" fetchpriority="high"'
     );
     expect(result.combinedDirectivesUrlParams).toBe(
-      "&blure=3&rotate=90&custom=customValue"
+      "&blur=3&rotate=90&custom=customValue"
     );
     expect(result2.combinedClassesAttrStr).toBe(
       'class="configClass img-class"'
@@ -77,7 +77,7 @@ describe("processAttributesAndConfig", () => {
       'loading="lazy" decoding="async" fetchpriority="high"'
     );
     expect(result2.combinedDirectivesUrlParams).toBe(
-      "&blure=3&rotate=90&custom=customValue"
+      "&blur=3&rotate=90&custom=customValue"
     );
   });
 
@@ -90,7 +90,7 @@ describe("processAttributesAndConfig", () => {
         class: " dubiousInConfig myclass",
         decoding: "async",
       },
-      imagetoolsDirectives: { blure: 3, rotate: 90 },
+      imagetoolsDirectives: { blur: 3, rotate: 90 },
     };
     const result = processAttributesAndConfig(nodeUrl, config);
     expect(result.combinedClassesAttrStr).toBe(
@@ -100,7 +100,7 @@ describe("processAttributesAndConfig", () => {
       'loading="lazy" decoding="async" fetchpriority="high"'
     );
     expect(result.combinedDirectivesUrlParams).toBe(
-      "&blure=3&rotate=90&custom=customValue"
+      "&blur=3&rotate=90&custom=customValue"
     );
   });
 
