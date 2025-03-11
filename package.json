@@ -19,6 +19,10 @@
   },
   "author": "Lucas Elzinga",
   "license": "ISC",
+  "peerDependencies": {
+    "@sveltejs/enhanced-img": "^0.4.4",
+    "mdsvex": "^0.12.3"
+  },
   "dependencies": {
     "unist-util-visit": "^5.0.0"
   },
