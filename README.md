@@ -25,7 +25,7 @@ npm install --save-dev @lzinga/mdsvex-enhanced-images
 Configure the package in your mdsvex config.
 
 ```ts
-import enhancedImage from '@lzinga/mdsvex-enhanced-images';
+import enhancedImage from 'mdsvex-enhanced-images';
 
 const config = {
 	extensions: ['.svelte', '.md'],
