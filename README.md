@@ -1,5 +1,11 @@
-# mdsvex-enhanced-images
-[![NPM Downloads](https://img.shields.io/npm/dt/%40lzinga%2Fmdsvex-enhanced-images)](https://www.npmjs.com/package/@lzinga/mdsvex-enhanced-images)
+<h1 align="center">mdsvex-enhanced-images</h1>
+<p align="center" style="text-decoration: none;">
+	<a href="https://github.com/lzinga/mdsvex-enhanced-images/actions/workflows/main.yml"><img src="https://github.com/lzinga/mdsvex-enhanced-images/actions/workflows/main.yml/badge.svg" alt="main"></a>
+	<a href="https://www.npmjs.com/package/@lzinga/mdsvex-enhanced-images"><img alt="NPM Version" src="https://img.shields.io/npm/v/%40lzinga%2Fmdsvex-enhanced-images"></a>
+	<img alt="GitHub License" src="https://img.shields.io/github/license/lzinga/mdsvex-enhanced-images">
+	<a href="https://github.com/lzinga/mdsvex-enhanced-images/commits/main/"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lzinga/mdsvex-enhanced-images"></a>
+</p>
+
 
 This plugin allows you to: 
 - use relative urls to images from the markdown file while also using the `enhanced:img` library from `@sveltejs/enhanced-img`.
