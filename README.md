@@ -10,6 +10,12 @@ Special thanks to https://github.com/mattjennings/mdsvex-relative-images, for th
 
 Feel free to open a PR or an issue if you have any suggestions or feature requests!
 
+## Contributors
+
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
+
+
 ## Usage
 
 ### Installation
