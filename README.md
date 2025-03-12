@@ -23,17 +23,17 @@ Feel free to open a PR or an issue if you have any suggestions or feature reques
 	<tbody>
 		<tr>
             <td align="center">
-                <a href="https://github.com/lzinga">
-                    <img src="https://avatars.githubusercontent.com/u/9082450?v=4" width="100;" alt="lzinga"/>
-                    <br />
-                    <sub><b>Lucas</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/0gust1">
                     <img src="https://avatars.githubusercontent.com/u/578154?v=4" width="100;" alt="0gust1"/>
                     <br />
                     <sub><b>Augustin C.</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/lzinga">
+                    <img src="https://avatars.githubusercontent.com/u/9082450?v=4" width="100;" alt="lzinga"/>
+                    <br />
+                    <sub><b>Lucas</b></sub>
                 </a>
             </td>
             <td align="center">
